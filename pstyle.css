@@ -1,0 +1,40 @@
+div{
+    height: 200px;
+    width: 200px;
+    background-color: palegreen ;
+    border: 2px solid;
+    margin: 10px;
+    display: inline-block;
+    font-size: 2em;
+}
+
+section{
+    font-size: 20px;
+}
+
+#outer{
+    height: 500px;
+    width: 500px;
+    border: 2px solid black;
+    background-color: cadetblue;
+    font-size: medium;
+}
+
+#inner{
+    height: 300px;
+    width: 300px;
+    border: 2px solid black;
+    background-color: yellow;
+    margin: 10%;
+    padding: 1em;
+    font-size: 3em;
+}
+
+button{
+    display: block;
+    border: 2px solid green;
+    border-radius: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size:0.5em;
+}

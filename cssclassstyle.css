@@ -1,0 +1,36 @@
+h1 {
+  color: red;
+}
+p {
+  color: orange;
+}
+
+button {
+  color: gold;
+}
+
+#hi {
+  color: orange;
+}
+
+#Tom {
+  background-color: black;
+  color: white;
+}
+
+#help {
+  background-color: blue;
+}
+
+#logo {
+  text-align: center;
+  width: 20%;
+  color: #ffa511;
+  font-family: league spartan;
+  font-size: 55px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  line-height: normal;
+  text-decoration: double teal underline;
+  text-transform: uppercase;
+}

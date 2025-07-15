@@ -1,0 +1,67 @@
+#box{
+    height: 200px;
+    width: 200px;
+    background-color: pink;
+    /* animation-name: colorAnimation;
+    animation-delay: 2s;
+    animation-duration: 2s;
+    animation-direction: reverse;
+    animation-iteration-count: infinite; */
+    
+    animation: colAnimation 2s ease-in 2s infinite reverse;
+}
+
+@keyframes fontAnimation{
+        from{
+            font-size: 20px;
+        }
+
+        to{
+            font-size: 40px;
+        }
+}
+
+@keyframes colorAnimation{
+    from{
+        color: black;
+        background-color: blue;
+
+    }
+    to{
+        color: yellow;
+        border-radius: 15px;
+        background-color: greenyellow;
+    }
+}
+
+@keyframes colAnimation{
+    0%{
+        border: 2px solid red;
+        color: pink;
+        border-radius: 5px;
+    }
+
+    10%{
+        border: 10px dashed yellowgreen;
+        columns: green;
+        border-radius: 10px;
+    }
+
+    50%{
+        border: 20px dotted blueviolet;
+        color: red;
+        border-radius: 15px;
+    }
+
+    80%{
+        border: 10px solid yellow;
+        color: violet;
+        border-radius: 20px;
+    }
+
+    100%{
+        border: 2px solid red;
+        color: blanchedalmond;
+        border-radius: 25px;
+    }
+}
