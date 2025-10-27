@@ -59,24 +59,8 @@ function saveToDB(data) {
 }
 
 // basic way to handle callback hell using promise
-let req = saveToDB("Lukesh");
-req
-  .then(() => {
-    console.log("Data was saved");
-    saveToDB("Rohit").then(() => {
-      console.log("Data2 was saved!");
-      saveToDB("Poddar").then(() => {
-        console.log("Data3 was saved!");
-      });
-    });
-  })
-  .catch(() => {
-    console.log("Data was not saved!");
-  });
-
-// the above code can be written w/o using req var
-// saveToDB("Lukesh");
-
+// let req = saveToDB("Lukesh");
+// req
 //   .then(() => {
 //     console.log("Data was saved");
 //     saveToDB("Rohit").then(() => {
@@ -89,20 +73,40 @@ req
 //   .catch(() => {
 //     console.log("Data was not saved!");
 //   });
-// improved version of then and catch methods
 
-// saveToDB("Lukesh")
+// the above code can be written w/o using req var
+// saveToDB("Lukesh");
 //   .then(() => {
-//     console.log("Data saved!");
-//     return saveToDB("Rohit");
-//   })
-//   .then(() => {
-//     console.log("Data2 was saved!");
-//     return saveToDB("Poddar");
-//   })
-//   .then(() => {
-//     console.log("Data3 was saved!");
+//     console.log("Data was saved");
+//     saveToDB("Rohit").then(() => {
+//       console.log("Data2 was saved!");
+//       saveToDB("Poddar").then(() => {
+//         console.log("Data3 was saved!");
+//       });
+//     });
 //   })
 //   .catch(() => {
 //     console.log("Data was not saved!");
 //   });
+
+// improved version of then and catch methods
+
+saveToDB("Lukesh")
+  .then((res) => {
+    console.log("Data saved!");
+    console.log(res);
+    return saveToDB("Rohit");
+  })
+  .then((res) => {
+    console.log("Data2 was saved!");
+    console.log(res);
+    return saveToDB("Poddar");
+  })
+  .then((res) => {
+    console.log("Data3 was saved!");
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log("Data was not saved!");
+    console.log(err);
+  });

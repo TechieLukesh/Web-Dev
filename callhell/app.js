@@ -1,5 +1,15 @@
 let h1 = document.querySelector("h1");
 
+// handling everything using promises
+function changeColor(color, delay) {
+  return new Promise((resollve, reject) => {
+    setTimeout(() => {
+      h1.style.color = color;
+      resollve("Color changed!");
+    }, delay);
+  });
+}
+
 // for frequent change color after sometime, make a function
 
 // function changeColor(color, delay) {
@@ -9,25 +19,47 @@ let h1 = document.querySelector("h1");
 // }
 
 // for seq. execution we should implement using other function
-function changeColor(color, delay, nextChangeColor) {
-  setTimeout(() => {
-    h1.style.color = color;
-    if (nextChangeColor) nextChangeColor();
-  }, delay);
-}
+// function changeColor(color, delay, nextChangeColor) {
+//   setTimeout(() => {
+//     h1.style.color = color;
+//     if (nextChangeColor) nextChangeColor();
+//   }, delay);
+// }
 
 // after 1 sec->red, then orange then green
-changeColor("red", 1000, () => {
-  changeColor("orange", 1000, () => {
-    changeColor("green", 1000, () => {
-      changeColor("yellow", 1000, () => {
-        changeColor("blue", 1000);
-      });
-    });
-  });
-});
+// changeColor("red", 1000, () => {
+//   changeColor("orange", 1000, () => {
+//     changeColor("green", 1000, () => {
+//       changeColor("yellow", 1000, () => {
+//         changeColor("blue", 1000);
+//       });
+//     });
+//   });
+// });
 
-// we want sequentially
+// changing the above code into more understandable format using promise methods
+
+changeColor("red", 1000)
+  .then(() => {
+    console.log("Red color was completed!");
+    return changeColor("orange", 1000);
+  })
+  .then(() => {
+    console.log("Orange color was completed!");
+    return changeColor("green", 1000);
+  })
+  .then(() => {
+    console.log("Green color was completed!");
+    return changeColor("blue", 1000);
+  })
+  .then(() => {
+    console.log("Blue color was completed!");
+  })
+  .catch(() => {
+    console.log("Failed!");
+  });
+
+// we w)ant sequentially
 // changeColor("red", 1000);     -> 1
 // changeColor("yellow", 2000);  -> 2
 // changeColor("orange", 3000);  -> 3
