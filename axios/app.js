@@ -17,11 +17,31 @@ let url = "https://catfact.ninja/fact";
 
 // implement the above thing using axios
 
+// async function getFacts() {
+//   try {
+//     let res = await axios.get(url);
+//     console.log(res.data.fact);
+//   } catch (e) {
+//     console.log("err-", e);
+//   }
+// }
+
+// getting facts on clicking button
+let btn = document.querySelector("button");
+
+// callback is also await-async as the getFacts() is also async
+btn.addEventListener("click", async () => {
+  let fact = await getFacts();
+  let p = document.querySelector("#result");
+  p.innerText = fact;
+});
+
 async function getFacts() {
   try {
     let res = await axios.get(url);
-    console.log(res.data.fact);
+    return res.data.fact;
   } catch (e) {
     console.log("err-", e);
+    return "No Fact Found!";
   }
 }
